@@ -360,6 +360,11 @@ h1, h2, h3, p { margin: 0; }
   margin: 0 0 6px;
 }
 .service-info p { font-size: 12.5px; color: var(--text-muted); font-weight: 300; line-height: 1.5; }
+.service-cta {
+  margin-top: 14px;
+  padding: 10px 20px;
+  font-size: 12.5px;
+}
 
 /* RESULTADOS — esteira (marquee) */
 .results {

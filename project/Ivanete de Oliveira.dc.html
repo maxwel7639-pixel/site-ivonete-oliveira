@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #0d0d0d; }
+    ::selection { background: #C9A84C; color: #0d0d0d; }
+    @keyframes floatArch { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(201,168,76,0.55); } 100% { box-shadow: 0 0 0 16px rgba(201,168,76,0); } }
+  </style>
+  <script src="./image-slot.js"></script>
+</helmet>
+<div ref="{{ containerRef }}" style="background:#0d0d0d; color:#F3EEE3; font-family:'Montserrat',sans-serif; width:100%; overflow-x:hidden; position:relative;">
+
+  <!-- NAV -->
+  <div style="position:fixed; top:0; left:0; right:0; z-index:40; display:flex; align-items:center; justify-content:space-between; padding:18px 24px; background:linear-gradient(180deg, rgba(13,13,13,0.85), rgba(13,13,13,0)); backdrop-filter:blur(2px);">
+    <div style="display:flex; flex-direction:column; line-height:1;">
+      <span style="font-family:'Parisienne',cursive; font-size:26px; color:#C9A84C;">Ivanete de Oliveira</span>
+      <span style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:9px; letter-spacing:2.5px; color:#D8CBAE; margin-top:2px;">SOBRANCELHAS &nbsp;•&nbsp; MICROPIGMENTAÇÃO</span>
+    </div>
+    <a href="https://wa.me/5554981684529" target="_blank" rel="noopener" style="display:none;"></a>
+  </div>
+
+  <!-- HERO -->
+  <section data-screen-label="Hero" style="position:relative; min-height:100svh; display:flex; align-items:center; padding:120px 24px 64px; box-sizing:border-box;">
+    <div style="position:absolute; inset:0; overflow:hidden; z-index:0;">
+      <div style="position:absolute; right:-3%; top:8%; width:70%; max-width:520px; aspect-ratio:3/4; animation:floatArch 7s ease-in-out infinite;">
+        <div style="width:100%; height:100%; border-radius:50% 50% 4% 4% / 60% 60% 4% 4%; overflow:hidden; border:1px solid rgba(201,168,76,0.35);">
+          <image-slot id="hero-photo" shape="rect" placeholder="Foto: retrato profissional" style="width:100%; height:100%;"></image-slot>
+        </div>
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(13,13,13,0.98) 30%, rgba(13,13,13,0.55) 62%, rgba(13,13,13,0.15) 100%); pointer-events:none;"></div>
+    </div>
+    <div data-reveal="" style="position:relative; z-index:1; max-width:620px; opacity:0; transform:translateY(24px); transition:opacity 0.9s ease, transform 0.9s ease;">
+      <span style="font-size:11px; letter-spacing:3px; color:#C9A84C; font-weight:600;">CAXIAS DO SUL / RS</span>
+      <h1 style="font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(34px,6vw,58px); line-height:1.08; margin:18px 0 20px; color:#F7F2E7;">Referência em procedimentos que valorizam a sua essência.</h1>
+      <p style="font-size:16px; line-height:1.7; color:#C9BFA9; max-width:480px; margin:0 0 34px; font-weight:300;">Design de sobrancelhas, micropigmentação, cílios e alisamento capilar — técnica refinada, olhar de artista e resultado natural.</p>
+      <a href="https://wa.me/5554981684529?text=Ol%C3%A1%2C%20Ivanete!%20Quero%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; background:#C9A84C; color:#0d0d0d; padding:16px 30px; border-radius:999px; font-weight:600; font-size:14px; letter-spacing:0.5px; text-decoration:none;" style-hover="background:#E0BE63;">
+        Agendar no WhatsApp →
+      </a>
+    </div>
+  </section>
+
+  <!-- TRUST BADGES -->
+  <section data-screen-label="Selos de confiança" style="border-top:1px solid rgba(201,168,76,0.18); border-bottom:1px solid rgba(201,168,76,0.18); padding:40px 24px;">
+    <div data-reveal="" style="opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease; max-width:1080px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:28px; text-align:center;">
+      <div>
+        <div style="font-family:'Playfair Display',serif; font-size:30px; color:#C9A84C;">2.594</div>
+        <div style="font-size:11px; letter-spacing:1.5px; color:#B8AC8F; margin-top:6px; text-transform:uppercase;">Seguidores no Instagram</div>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif; font-size:22px; color:#C9A84C;">Artista Destaque</div>
+        <div style="font-size:11px; letter-spacing:1.5px; color:#B8AC8F; margin-top:6px; text-transform:uppercase;">Prêmio Beauty Time Caxias do Sul</div>
+      </div>
+      <div>
+        <div style="font-family:'Playfair Display',serif; font-size:30px; color:#C9A84C;">+10 anos</div>
+        <div style="font-size:11px; letter-spacing:1.5px; color:#B8AC8F; margin-top:6px; text-transform:uppercase;">De experiência dedicada à beleza</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section data-screen-label="Serviços" style="padding:96px 24px; max-width:1180px; margin:0 auto;">
+    <div data-reveal="" style="opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease; text-align:center; margin-bottom:56px;">
+      <span style="font-size:11px; letter-spacing:3px; color:#C9A84C; font-weight:600;">SERVIÇOS</span>
+      <h2 style="font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(28px,4vw,40px); color:#F7F2E7; margin:14px 0 0;">Cuidado especializado, do olhar aos fios.</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px;">
+      <sc-for list="{{ services }}" as="svc" hint-placeholder-count="6">
+        <div data-tilt-card="" data-reveal="" style="opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease; position:relative; border-radius:6px; overflow:hidden; aspect-ratio:4/5; border:1px solid rgba(201,168,76,0.25); will-change:transform;">
+          <div style="position:absolute; inset:0;">
+            <image-slot id="{{ svc.slotId }}" shape="rect" placeholder="{{ svc.photoLabel }}" style="width:100%; height:100%;"></image-slot>
+          </div>
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,13,13,0) 40%, rgba(13,13,13,0.92) 100%); pointer-events:none;"></div>
+          <div style="position:absolute; left:20px; right:20px; bottom:20px;">
+            <h3 style="font-family:'Playfair Display',serif; font-weight:500; font-size:19px; color:#F7F2E7; margin:0 0 6px;">{{ svc.title }}</h3>
+            <p style="font-size:12.5px; color:#C9BFA9; margin:0; font-weight:300; line-height:1.5;">{{ svc.desc }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section data-screen-label="Resultados" style="padding:96px 24px; background:#111110; border-top:1px solid rgba(201,168,76,0.18); border-bottom:1px solid rgba(201,168,76,0.18);">
+    <div style="max-width:1180px; margin:0 auto;">
+      <div data-reveal="" style="opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease; text-align:center; margin-bottom:48px;">
+        <span style="font-size:11px; letter-spacing:3px; color:#C9A84C; font-weight:600;">RESULTADOS</span>
+        <h2 style="font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(28px,4vw,40px); color:#F7F2E7; margin:14px 0 0;">Resultados que falam por si.</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;">
+        <sc-for list="{{ transformations }}" as="t" hint-placeholder-count="4">
+          <div data-reveal="" style="opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease; border-radius:6px; overflow:hidden; border:1px solid rgba(201,168,76,0.25);">
+            <div style="position:relative; aspect-ratio:1/1; overflow:hidden;">
+              <image-slot id="{{ t.photoId }}" shape="rect" placeholder="Resultado" style="width:100%; height:100%;"></image-slot>
+            </div>
+            <div style="padding:12px 14px; font-size:12px; color:#C9BFA9; font-weight:300;">{{ t.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURSOS -->
+  <section data-screen-label="Cursos" style="padding:96px 24px;">
+    <div data-reveal="" style="opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease; max-width:920px; margin:0 auto; background:linear-gradient(135deg, rgba(201,168,76,0.14), rgba(201,168,76,0.04)); border:1px solid rgba(201,168,76,0.4); border-radius:10px; padding:56px 40px; display:flex; flex-direction:column; align-items:flex-start; gap:20px;">
+      <span style="font-size:11px; letter-spacing:3px; color:#C9A84C; font-weight:600;">FORMAÇÃO PROFISSIONAL</span>
+      <h2 style="font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(26px,3.6vw,36px); color:#F7F2E7; margin:0; line-height:1.2;">Curso de Designer de Sobrancelhas</h2>
+      <p style="font-size:15px; line-height:1.7; color:#C9BFA9; font-weight:300; max-width:600px; margin:0;">Aprenda a técnica que consagrou Ivanete de Oliveira. Turmas presenciais e turma VIP com acompanhamento individual, do fundamento à prática em modelos reais.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <span style="font-size:11px; letter-spacing:1px; padding:8px 16px; border:1px solid rgba(201,168,76,0.5); border-radius:20px; color:#E0D4AE;">Turma Presencial</span>
+        <span style="font-size:11px; letter-spacing:1px; padding:8px 16px; border:1px solid rgba(201,168,76,0.5); border-radius:20px; color:#E0D4AE;">Turma VIP</span>
+      </div>
+      <a href="https://wa.me/5554981684529?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Curso%20de%20Designer%20de%20Sobrancelhas." target="_blank" rel="noopener" style="margin-top:8px; display:inline-flex; align-items:center; gap:10px; background:transparent; color:#C9A84C; padding:14px 26px; border:1px solid #C9A84C; border-radius:999px; font-weight:600; font-size:13.5px; letter-spacing:0.5px; text-decoration:none;" style-hover="background:#C9A84C; color:#0d0d0d;">
+        Saiba mais sobre o curso →
+      </a>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section data-screen-label="Sobre" style="padding:96px 24px; background:#111110; border-top:1px solid rgba(201,168,76,0.18); border-bottom:1px solid rgba(201,168,76,0.18);">
+    <div data-reveal="" style="opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease; max-width:1000px; margin:0 auto; display:grid; grid-template-columns:minmax(220px,340px) 1fr; gap:48px; align-items:center;">
+      <div style="aspect-ratio:4/5; border-radius:6px; overflow:hidden; border:1px solid rgba(201,168,76,0.3);">
+        <image-slot id="about-photo" shape="rect" placeholder="Foto: Ivanete de Oliveira" style="width:100%; height:100%;"></image-slot>
+      </div>
+      <div>
+        <span style="font-size:11px; letter-spacing:3px; color:#C9A84C; font-weight:600;">SOBRE A PROFISSIONAL</span>
+        <h2 style="font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(26px,3.6vw,34px); color:#F7F2E7; margin:14px 0 18px;">Ivanete de Oliveira</h2>
+        <p style="font-size:15px; line-height:1.75; color:#C9BFA9; font-weight:300; margin:0;">Especialista em sobrancelhas, micropigmentação, cílios e alisamento capilar em Caxias do Sul. Reconhecida com o prêmio Artista Destaque pelo Beauty Time Caxias do Sul, Ivanete une técnica apurada e sensibilidade estética para realçar a beleza natural de cada cliente — e forma novos profissionais através do seu curso de Designer de Sobrancelhas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section data-screen-label="Depoimentos" style="padding:96px 24px; max-width:1180px; margin:0 auto;">
+    <div data-reveal="" style="opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease; text-align:center; margin-bottom:48px;">
+      <span style="font-size:11px; letter-spacing:3px; color:#C9A84C; font-weight:600;">DEPOIMENTOS</span>
+      <h2 style="font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(28px,4vw,40px); color:#F7F2E7; margin:14px 0 0;">O que dizem as clientes</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px;">
+      <sc-for list="{{ testimonials }}" as="tm" hint-placeholder-count="3">
+        <div data-reveal="" style="opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease; background:#151412; border:1px solid rgba(201,168,76,0.25); border-radius:8px; padding:30px 26px;">
+          <div style="color:#C9A84C; font-size:20px; letter-spacing:3px; margin-bottom:14px;">★★★★★</div>
+          <p style="font-size:14.5px; line-height:1.7; color:#D8CBAE; font-weight:300; font-style:italic; margin:0 0 18px;">"{{ tm.quote }}"</p>
+          <div style="font-size:12.5px; letter-spacing:1px; color:#8a7d5e; text-transform:uppercase;">{{ tm.name }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section data-screen-label="CTA final" style="padding:100px 24px; text-align:center; background:radial-gradient(ellipse at center, rgba(201,168,76,0.1), rgba(13,13,13,0) 70%);">
+    <div data-reveal="" style="opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease;">
+      <h2 style="font-family:'Playfair Display',serif; font-weight:500; font-size:clamp(28px,4.2vw,42px); color:#F7F2E7; margin:0 0 20px;">Agende sua transformação.</h2>
+      <p style="font-size:15px; color:#C9BFA9; font-weight:300; margin:0 0 32px;">Atendimento em Caxias do Sul, sob agendamento.</p>
+      <a href="https://wa.me/5554981684529?text=Ol%C3%A1%2C%20Ivanete!%20Quero%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:10px; background:#C9A84C; color:#0d0d0d; padding:17px 34px; border-radius:999px; font-weight:600; font-size:14.5px; letter-spacing:0.5px; text-decoration:none;" style-hover="background:#E0BE63;">
+        Agendar no WhatsApp →
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid rgba(201,168,76,0.25); padding:48px 24px 32px; text-align:center;">
+    <span style="font-family:'Parisienne',cursive; font-size:24px; color:#C9A84C;">Ivanete de Oliveira</span>
+    <div style="display:flex; justify-content:center; gap:28px; flex-wrap:wrap; margin:22px 0; font-size:13px; color:#C9BFA9; font-weight:300;">
+      <a href="https://instagram.com/ivanetedeoliveiraa" target="_blank" rel="noopener" style="color:#C9BFA9; text-decoration:none;" style-hover="color:#C9A84C;">@ivanetedeoliveiraa</a>
+      <a href="https://wa.me/5554981684529" target="_blank" rel="noopener" style="color:#C9BFA9; text-decoration:none;" style-hover="color:#C9A84C;">(54) 98168-4529</a>
+      <span>Seg a Sáb — horários sob agendamento</span>
+    </div>
+    <div style="font-size:11px; color:#5f5748;">© 2026 Ivanete de Oliveira. Todos os direitos reservados.</div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/5554981684529?text=Ol%C3%A1%2C%20Ivanete!%20Quero%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" style="position:fixed; bottom:24px; right:24px; z-index:50; width:58px; height:58px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(0,0,0,0.4); animation:pulseRing 2.4s infinite; text-decoration:none;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+      <path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.28-1.38a9.87 9.87 0 0 0 4.76 1.21h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.13-2.9-7A9.83 9.83 0 0 0 12.04 2z" fill="#fff"/>
+      <path d="M9.2 7.3c-.2-.45-.42-.46-.62-.47h-.53c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.3 0 1.35 0.98 2.66 1.12 2.84.14.18 1.9 3.04 4.68 4.14 2.31.92 2.78.74 3.28.69.5-.05 1.6-.65 1.83-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.53-.32-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.35-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.4-.48.13-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.6-1.5-.85-2.05z" fill="#25D366"/>
+    </svg>
+  </a>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  services = [
+    { title: "Designer de Sobrancelhas", desc: "Modelagem personalizada para valorizar o formato do seu rosto.", photoLabel: "Design de sobrancelhas", slotId: "svc-design" },
+    { title: "Micropigmentação de Sobrancelhas", desc: "Fios naturais com técnica de longa duração.", photoLabel: "Micropigmentação", slotId: "svc-micropig" },
+    { title: "Micropigmentação Labial", desc: "Cor e contorno naturais que realçam o sorriso.", photoLabel: "Micro labial", slotId: "svc-labial" },
+    { title: "Sobrancelhas Fio a Fio", desc: "Efeito realista, traço por traço.", photoLabel: "Fio a fio", slotId: "svc-fioafio" },
+    { title: "Extensão de Cílios", desc: "Volume Brasileiro e Lash Lifting para um olhar marcante.", photoLabel: "Extensão de cílios", slotId: "svc-cilios" },
+    { title: "Alisamento Capilar", desc: "Fios lisos, alinhados e com brilho saudável.", photoLabel: "Alisamento capilar", slotId: "svc-alisamento" },
+  ];
+
+  transformations = [
+    { label: "Design + Micropigmentação", photoId: "resultado-1" },
+    { label: "Micropigmentação Labial", photoId: "resultado-2" },
+    { label: "Fio a Fio", photoId: "resultado-3" },
+    { label: "Extensão de Cílios", photoId: "resultado-4" },
+  ];
+
+  testimonials = [
+    { quote: "Espaço reservado para o depoimento real de uma cliente.", name: "Cliente" },
+    { quote: "Espaço reservado para o depoimento real de uma cliente.", name: "Cliente" },
+    { quote: "Espaço reservado para o depoimento real de uma cliente.", name: "Cliente" },
+  ];
+
+  componentDidMount() {
+    const root = this.container;
+    if (!root) return;
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    root.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+    this._io = io;
+
+    // Tilt on service cards (event delegation)
+    const onMove = (e) => {
+      const card = e.target.closest && e.target.closest('[data-tilt-card]');
+      if (!card || !root.contains(card)) return;
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `perspective(700px) rotateX(${(-py * 8).toFixed(2)}deg) rotateY(${(px * 10).toFixed(2)}deg) translateY(0) scale(1.02)`;
+    };
+    const onLeave = (e) => {
+      const card = e.target.closest && e.target.closest('[data-tilt-card]');
+      if (!card || !root.contains(card)) return;
+      card.style.transform = card.style.opacity === '1' || true ? 'translateY(0)' : '';
+    };
+    root.addEventListener('mousemove', onMove);
+    root.addEventListener('mouseleave', onLeave, true);
+    this._onMove = onMove;
+    this._onLeave = onLeave;
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this.container) {
+      this.container.removeEventListener('mousemove', this._onMove);
+      this.container.removeEventListener('mouseleave', this._onLeave, true);
+    }
+  }
+
+  renderVals() {
+    return {
+      containerRef: (el) => { this.container = el; },
+      services: this.services,
+      transformations: this.transformations,
+      testimonials: this.testimonials,
+    };
+  }
+}
+</script>
+</body>
+</html>

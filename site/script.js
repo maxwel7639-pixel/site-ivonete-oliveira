@@ -59,4 +59,62 @@
       }
     });
   });
+
+  // Esteira infinita (marquee) dos selos de confiança
+  const track = document.querySelector('.marquee-track');
+  if (track) {
+    const marquee = track.parentElement;
+    const baseHTML = track.innerHTML; // conjunto original (4 itens)
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const SPEED = 55; // px por segundo — ritmo suave e constante
+
+    const buildMarquee = () => {
+      // Reset pro estado original antes de recalcular
+      track.classList.remove('is-animating');
+      track.style.animationDuration = '';
+      track.innerHTML = baseHTML;
+      if (prefersReduced.matches) return;
+
+      const originals = Array.from(track.children);
+      const appendCopy = (node) => {
+        const clone = node.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      };
+
+      // 1) Repete o conjunto até ultrapassar a largura visível (sem buracos em telas largas)
+      let guard = 0;
+      while (track.scrollWidth < marquee.offsetWidth && guard < 30) {
+        originals.forEach(appendCopy);
+        guard++;
+      }
+
+      // 2) Largura de um "conjunto" já preenchido = distância exata do loop
+      const setWidth = track.scrollWidth;
+
+      // 3) Duplica o conjunto inteiro uma vez -> translateX(-50%) emenda perfeita
+      Array.from(track.children).forEach(appendCopy);
+
+      // 4) Duração proporcional à largura => velocidade constante em qualquer tela
+      track.style.animationDuration = (setWidth / SPEED) + 's';
+      track.classList.add('is-animating');
+    };
+
+    // Aguarda as fontes pra medir a largura real dos textos (evita "pulos")
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(buildMarquee);
+    } else {
+      buildMarquee();
+    }
+
+    // Reconstrói (com debounce) ao redimensionar pra manter o preenchimento
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(buildMarquee, 200);
+    });
+    if (prefersReduced.addEventListener) {
+      prefersReduced.addEventListener('change', buildMarquee);
+    }
+  }
 })();

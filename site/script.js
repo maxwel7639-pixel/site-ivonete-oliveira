@@ -60,15 +60,16 @@
     });
   });
 
-  // Esteira infinita (marquee) dos selos de confiança
-  const track = document.querySelector('.marquee-track');
-  if (track) {
-    const marquee = track.parentElement;
-    const baseHTML = track.innerHTML; // conjunto original (4 itens)
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const SPEED = 55; // px por segundo — ritmo suave e constante
+  // Esteiras infinitas (marquee): selos de confiança + resultados
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const builders = [];
 
-    const buildMarquee = () => {
+  const setupMarquee = (track) => {
+    const marquee = track.parentElement;
+    const baseHTML = track.innerHTML; // conjunto original de itens
+    const speed = parseFloat(track.getAttribute('data-speed')) || 55; // px/s
+
+    const build = () => {
       // Reset pro estado original antes de recalcular
       track.classList.remove('is-animating');
       track.style.animationDuration = '';
@@ -96,25 +97,42 @@
       Array.from(track.children).forEach(appendCopy);
 
       // 4) Duração proporcional à largura => velocidade constante em qualquer tela
-      track.style.animationDuration = (setWidth / SPEED) + 's';
+      track.style.animationDuration = (setWidth / speed) + 's';
       track.classList.add('is-animating');
     };
 
+    // Pausa ao segurar o dedo (touch) quando a esteira marca data-touch-pause
+    if (marquee.hasAttribute('data-touch-pause')) {
+      const pause = () => track.classList.add('is-touch-paused');
+      const resume = () => track.classList.remove('is-touch-paused');
+      marquee.addEventListener('touchstart', pause, { passive: true });
+      marquee.addEventListener('touchend', resume);
+      marquee.addEventListener('touchcancel', resume);
+    }
+
+    builders.push(build);
+  };
+
+  document.querySelectorAll('.marquee-track').forEach(setupMarquee);
+
+  if (builders.length) {
+    const buildAll = () => builders.forEach((fn) => fn());
+
     // Aguarda as fontes pra medir a largura real dos textos (evita "pulos")
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(buildMarquee);
+      document.fonts.ready.then(buildAll);
     } else {
-      buildMarquee();
+      buildAll();
     }
 
     // Reconstrói (com debounce) ao redimensionar pra manter o preenchimento
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(buildMarquee, 200);
+      resizeTimer = setTimeout(buildAll, 200);
     });
     if (prefersReduced.addEventListener) {
-      prefersReduced.addEventListener('change', buildMarquee);
+      prefersReduced.addEventListener('change', buildAll);
     }
   }
 })();

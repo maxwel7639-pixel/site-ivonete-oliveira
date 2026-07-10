@@ -31,4 +31,32 @@
   };
   document.addEventListener('mousemove', onMove);
   document.addEventListener('mouseleave', onLeave, true);
+
+  // FAQ accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item) => {
+    const btn = item.querySelector('.faq-q');
+    const answer = item.querySelector('.faq-a');
+    if (!btn || !answer) return;
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+      // Fecha os demais (comportamento de acordeão)
+      faqItems.forEach((other) => {
+        if (other !== item) {
+          other.classList.remove('is-open');
+          other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      if (isOpen) {
+        item.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+      } else {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
 })();
